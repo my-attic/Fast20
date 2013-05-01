@@ -11,18 +11,25 @@ $ cd Fast20/
 $ mvn compile assembly:single
 ```
 
-Then, copy `fast2-x.x.jar` to a directory
+Then, copy `/distribution/fast2.x.x.jar` to a directory
 
 ## Getting started (temporary)
 
-- create a directory (ie `myapp`) and copy `fast2-0.0.jar` to it
-- copy `app` directory to `myapp`
-- copy `public` directory to `myapp`
-- you can change http port in `app/parameters.golo`
+- create a directory (ie `myapp`) and copy `fast2.x.x.jar` to it
+
+### Generate the application skeleton
 
 ```bash
 $ cd myapp
-$ java -jar fast2-0.0.jar
+$ java -jar fast2.x.x.jar new
+```
+> The application is generated. You can change parameters with `app/parameters.golo`
+
+### Run the application
+
+```bash
+$ cd myapp
+$ java -jar fast2.x.x.jar
 ```
 > The application will be available on port 8080.
 

@@ -6,7 +6,7 @@
 
     <groupId>fast20</groupId>
     <artifactId>fast20</artifactId>
-    <version>0.0</version>
+    <version>0.1</version>
 
     <packaging>jar</packaging>
 
@@ -67,8 +67,9 @@
                         </manifest>
                     </archive>
                     <appendAssemblyId>false</appendAssemblyId>
-                    <outputDirectory>../Fast20</outputDirectory>
-                    <finalName>fast2-${project.version}</finalName>
+                    <!--<outputDirectory>../Fast20</outputDirectory>-->
+                    <outputDirectory>../Fast20/distribution</outputDirectory>
+                    <finalName>fast2.${project.version}</finalName>
                 </configuration>
             </plugin>
 
