@@ -1,0 +1,11 @@
+
+- plugin (jar) loaded at runtime
+- redis
+- mongo
+- hot reloading
+- samples (webworkers)
+- server-sents events
+- models
+- templating (server) mustache java (or handelbar)
+- javascript front stack
+- skeleton generator
