@@ -12,17 +12,11 @@ import static spark.Spark.setPort;
 
 public class Main {
 
-    /* standalone mode for tests
-       http://localhost:4567/hello
-       build : mvn compile assembly:single
-       java -jar fast2-1.0-SNAPSHOT-standalone.jar
-    */
     public static void main(String[] args) {
         /*TODO:
             - app becomes a parameter
             - reload script if change (dev mode)
             - load jars (plugin)
-
         */
         try {
             System.out.println(Resources.read("rsrc/logo.rsrc"));
