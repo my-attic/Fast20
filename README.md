@@ -11,11 +11,10 @@ $ cd Fast20/
 $ mvn compile assembly:single
 ```
 
-Then, copy `/distribution/fast2.x.x.jar` to a directory
 
 ## Getting started (temporary)
 
-- create a directory (ie `myapp`) and copy `fast2.x.x.jar` to it
+- create a directory (ie `myapp`) and copy `/distribution/fast2.x.x.jar` to it
 
 ### Generate the application skeleton
 
