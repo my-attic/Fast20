@@ -3,9 +3,9 @@
 - redis
 - mongo
 - hot reloading
-- samples (webworkers)
+- samples (webworkers, etc. ...)
 - server-sents events
 - models
-- templating (server) mustache java (or handelbar)
+- templating (server) mustache java (or handelbar) : [https://github.com/jknack/handlebars.java](https://github.com/jknack/handlebars.java)
 - javascript front stack
 - skeleton generator
