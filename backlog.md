@@ -7,6 +7,8 @@
 - samples (webworkers, etc. ...)
 - sample with redis (big sample)
 - server-sents events
+- websockets
+- kind of promises with workers
 - models
 - templating (server) mustache java (or handelbar) : [https://github.com/jknack/handlebars.java](https://github.com/jknack/handlebars.java)
 - javascript front stack
