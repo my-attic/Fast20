@@ -1,11 +1,15 @@
 
+- upload files
 - plugin (jar) loaded at runtime
-- redis
+- redis -> done
 - mongo
 - hot reloading
 - samples (webworkers, etc. ...)
+- sample with redis (big sample)
 - server-sents events
 - models
 - templating (server) mustache java (or handelbar) : [https://github.com/jknack/handlebars.java](https://github.com/jknack/handlebars.java)
 - javascript front stack
-- skeleton generator
+- skeleton generator  -> done
+- snippets/scaffhold generator (?)
+- jmeter tests

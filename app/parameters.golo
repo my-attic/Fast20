@@ -4,3 +4,4 @@ module parameters
 function parameters = |message| -> DynamicObject()
 	:http(8080)
 	:public("public")
+	:redis("localhost")
