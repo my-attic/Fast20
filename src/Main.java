@@ -1,8 +1,11 @@
+import fast.Parameters;
+import fast.data.Redis;
 import fast.jgolo.KlassLoader;
 import fast.routes.Router;
 import fast.tools.Resources;
 import fast.tools.Skeleton;
 import gololang.DynamicObject;
+import redis.clients.jedis.Jedis;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,9 +38,29 @@ public class Main {
             e.printStackTrace();
         }
 
-        setPort((int)params.get("http"));
 
-        File f = new File(params.get("public").toString());
+
+        Parameters.http =  (int)params.get("http");
+        Parameters.publicDir = (String)params.get("publicDir");
+
+        //TODO : tests if null
+        Parameters.redis = (String)params.get("redis");
+        Parameters.redisPort = (int)params.get("redisPort");
+
+
+        try {
+            Redis.jedis = new Jedis(Parameters.redis, Parameters.redisPort);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+
+
+        setPort(Parameters.http);
+
+
+
+        File f = new File(params.get("publicDir").toString());
         externalStaticFileLocation(f.getAbsolutePath());
 
         Router.ignition(k);

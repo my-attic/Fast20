@@ -6,6 +6,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+import java.lang.invoke.MethodHandle;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
@@ -20,11 +21,12 @@ public class Router {
 
     public static Object defineRoute(KlassLoader k, DynamicObject dyno, Request request, Response response) {
         Object ret = null;
-        try {
 
+        try {
             ret = k.module(dyno.get("controller").toString())
                     .method(dyno.get("method").toString(), Object.class, Object.class)
                     .run(request, response);
+
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -35,6 +37,22 @@ public class Router {
             return ret;
         }
     }
+
+    public static Object ifDyno(DynamicObject dyno, Object o, Request request, Response response) {
+        if(dyno.get("dynoMethod")!=null) {
+            try {
+                o = ((MethodHandle) ((DynamicObject)o).get(dyno.get("dynoMethod").toString())).invoke(o,request, response) ;
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+            } finally {
+                return o;
+            }
+        } else {
+            return o;
+        }
+    }
+
+
 
     public static void ignition(final KlassLoader k) {
 
@@ -69,7 +87,10 @@ public class Router {
                 get(new Route(dyno.get("url").toString()) {
                     @Override
                     public Object handle(Request request, Response response) {
-                        return defineRoute(k, dyno, request, response);
+
+                        Object o = defineRoute(k, dyno, request, response);
+                        return ifDyno(dyno, o, request, response);
+                        //return defineRoute(k, dyno, request, response);
                     }
                 });
             }
@@ -79,7 +100,9 @@ public class Router {
                 post(new Route(dyno.get("url").toString()) {
                     @Override
                     public Object handle(Request request, Response response) {
-                        return defineRoute(k, dyno, request, response);
+                        Object o = defineRoute(k, dyno, request, response);
+                        return ifDyno(dyno, o, request, response);
+                        //return defineRoute(k, dyno, request, response);
                     }
                 });
             }
@@ -89,17 +112,21 @@ public class Router {
                 put(new Route(dyno.get("url").toString()) {
                     @Override
                     public Object handle(Request request, Response response) {
-                        return defineRoute(k, dyno, request, response);
+                        Object o = defineRoute(k, dyno, request, response);
+                        return ifDyno(dyno, o, request, response);
+                        //return defineRoute(k, dyno, request, response);
                     }
                 });
             }
 
-            /*=== POST ===*/
+            /*=== DELETE ===*/
             if(dyno.get("restVerb").equals("DELETE")) {
                 delete(new Route(dyno.get("url").toString()) {
                     @Override
                     public Object handle(Request request, Response response) {
-                        return defineRoute(k, dyno, request, response);
+                        Object o = defineRoute(k, dyno, request, response);
+                        return ifDyno(dyno, o, request, response);
+                        //return defineRoute(k, dyno, request, response);
                     }
                 });
             }

@@ -13,13 +13,17 @@ function Routes = |routes...|{
 
 function Route = |restVerb, url, controller, method| {
 
-    return DynamicObject()
-            :restVerb(restVerb)
-            :url(url)
-            :controller(controller)
-            :method(method)
+    let route = DynamicObject()
+                    :restVerb(restVerb)
+                    :url(url)
+                    :controller(controller)
+                    :method(method)
+
+    if method: contains("::") {
+        route:method(method:split("::"):get(0)):dynoMethod(method:split("::"):get(1))
+    }
+
+    return route
+
+
 }
-
-
-
-
