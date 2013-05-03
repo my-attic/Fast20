@@ -20,7 +20,7 @@ $ mvn compile assembly:single
 
 ```bash
 $ cd myapp
-$ java -jar fast2.x.x.jar new
+$ java -jar fast2.x.x.jar new <name_of_application>
 ```
 > The application is generated. You can change parameters with `app/parameters.golo`
 
@@ -28,7 +28,7 @@ $ java -jar fast2.x.x.jar new
 
 ```bash
 $ cd myapp
-$ java -jar fast2.x.x.jar
+$ java -jar fast2.x.x.jar run <name_of_application>
 ```
 > The application will be available on port 8080.
 

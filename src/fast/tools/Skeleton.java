@@ -10,18 +10,18 @@ import java.net.URISyntaxException;
  */
 public class Skeleton {
 
-    public static void generate() throws IOException, URISyntaxException {
+    public static void generate(String applicationDirectory) throws IOException, URISyntaxException {
 
         //golo application
-        Resources.mkdir("app/controllers");
-        Resources.mkdir("app/models");
-        Resources.mkdir("app/views");
-        Resources.mkdir("app/core");
+        Resources.mkdir(applicationDirectory+"/controllers");
+        Resources.mkdir(applicationDirectory+"/models");
+        Resources.mkdir(applicationDirectory+"/views");
+        Resources.mkdir(applicationDirectory+"/core");
 
-        Resources.copy("rsrc/skeleton/app/core/route.golo","app/core/route.golo");
-        Resources.copy("rsrc/skeleton/app/parameters.golo","app/parameters.golo");
-        Resources.copy("rsrc/skeleton/app/routes.golo","app/routes.golo");
-        Resources.copy("rsrc/skeleton/app/controllers/about.golo","app/controllers/about.golo");
+        Resources.copy("rsrc/skeleton/app/core/route.golo",applicationDirectory+"/core/route.golo");
+        Resources.copy("rsrc/skeleton/app/parameters.golo",applicationDirectory+"/parameters.golo");
+        Resources.copy("rsrc/skeleton/app/routes.golo",applicationDirectory+"/routes.golo");
+        Resources.copy("rsrc/skeleton/app/controllers/about.golo",applicationDirectory+"/controllers/about.golo");
 
         //static assets
         Resources.mkdir("public/bootstrap");
