@@ -20,6 +20,8 @@ public class Main {
     public static void start(String applicationDirectory) {
         KlassLoader k= new KlassLoader((new File(applicationDirectory)).getAbsolutePath());
 
+        Parameters.applicationDirectory = applicationDirectory;
+
         k.loadAll();
 
         /* manage parameters : http port etc. ...*/

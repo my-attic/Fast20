@@ -13,7 +13,8 @@ function router = |message| {
         Route("POST", "/redis", "/controllers/redisdb.golo", "create"),
         Route("GET", "/redis/:key", "/controllers/redisdb.golo", "fetch"),
         Route("GET", "/sandbox", "/controllers/sandbox.golo", "Test::hello"),
-        Route("POST", "/sandbox", "/controllers/sandbox.golo", "Test::hi")
+        Route("POST", "/sandbox", "/controllers/sandbox.golo", "Test::hi"),
+        Route("POST", "/fileupload", "/controllers/upload.golo", "upload")
     )
 
 }

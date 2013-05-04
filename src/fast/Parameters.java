@@ -18,5 +18,6 @@ public class Parameters {
     public static String publicDir = "public";
     public static String redis = "localhost";
     public static int redisPort = 6379;
+    public static String applicationDirectory = null;
 
 }
