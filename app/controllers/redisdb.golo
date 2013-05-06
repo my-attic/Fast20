@@ -1,12 +1,13 @@
 module redisdb
 
-#import java.util.Map
 import java.util.HashMap
-#import java.util.LinkedList
-#import java.util.UUID
 
 import fast.json.Json
 import fast.data.Redis
+
+function jsonDecode = |requestBody, kind| -> Json.fromJson(Json.parse(requestBody), kind)
+
+function jsonEncode = |something| -> Json.stringify(Json.toJson(something))
 
 #$.ajax({
 #  type: "POST",
@@ -19,20 +20,13 @@ import fast.data.Redis
 #POST
 function create = |request, response| {
 
-    println(request:body())
-
-    let jsonNode = Json.parse(request:body())
-    let hashMap = Json.fromJson(jsonNode, HashMap.class)
-
+    let hashMap = jsonDecode(request:body(),HashMap.class)
     let id = hashMap:get("id")
 
-    println(id)
-
-    Redis.set(id, Json.stringify(Json.toJson(hashMap)))
-
+    #TODO: try catch -> if redis is off ;)
+    Redis.set(id, jsonEncode(hashMap))
     response:type("application/json")
-
-    return Json.stringify(Json.toJson(hashMap))
+    return jsonEncode(hashMap)
 
 }
 
@@ -41,11 +35,8 @@ function create = |request, response| {
 #GET
 function fetch = |request, response| {
 
-    let key = request:params(":key")
-
+    let key = request:params(":key") #route : /redis/:key
     let jsonNode = Json.parse(Redis.get(key))
-
     response:type("application/json")
-
     return Json.stringify(jsonNode)
 }
