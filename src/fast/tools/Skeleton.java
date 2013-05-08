@@ -22,6 +22,7 @@ public class Skeleton {
         Resources.copy("rsrc/skeleton/app/core/route.golo",applicationDirectory+"/core/route.golo");
         //Resources.copy("rsrc/skeleton/app/core/data/redismodel.golo",applicationDirectory+"/core/data/redisdb.golo");
         Resources.copy("rsrc/skeleton/app/parameters.golo",applicationDirectory+"/parameters.golo");
+        Resources.copy("rsrc/skeleton/app/boot.golo",applicationDirectory+"/boot.golo");
         Resources.copy("rsrc/skeleton/app/routes.golo",applicationDirectory+"/routes.golo");
         Resources.copy("rsrc/skeleton/app/controllers/about.golo",applicationDirectory+"/controllers/about.golo");
 

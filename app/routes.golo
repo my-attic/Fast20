@@ -14,7 +14,9 @@ function router = |message| {
         Route("GET", "/redis/:key", "/controllers/redisdb.golo", "fetch"),
         Route("GET", "/sandbox", "/controllers/sandbox.golo", "Test::hello"),
         Route("POST", "/sandbox", "/controllers/sandbox.golo", "Test::hi"),
-        Route("POST", "/fileupload", "/controllers/upload.golo", "upload")
+        Route("POST", "/fileupload", "/controllers/upload.golo", "upload"),
+        Route("GET","/startw1","/controllers/workers.golo", "start_w1"),
+        Route("GET","/startw2","/controllers/workers.golo", "start_w2")
     )
 
 }

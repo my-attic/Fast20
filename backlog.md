@@ -2,7 +2,7 @@
 - upload files
 - plugin (jar) loaded at runtime
 - redis -> done
-- mongo
+- mongo + jongo
 - hot reloading
 - samples (webworkers, etc. ...)
 - sample with redis (big sample)
@@ -15,3 +15,10 @@
 - skeleton generator  -> done
 - snippets/scaffhold generator (?)
 - jmeter tests
+- promise, future, ...
+- authentication / see how simply protect a controller
+- investigate about error level when loading golo scripts
+- html report when error
+
+http://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+http://jongo.org/#maven

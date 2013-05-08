@@ -56,15 +56,29 @@ public class Main {
             throwable.printStackTrace();
         }
 
-
-
         setPort(Parameters.http);
 
-
-
+        /*===static assets ===*/
         File f = new File(params.get("publicDir").toString());
         externalStaticFileLocation(f.getAbsolutePath());
 
+        /*===boot===*/
+
+
+        try {
+            k.module("/boot.golo")
+                    .method("initialize", Object.class)
+                    .run((Object) null);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+
+        /*===define routes===*/
         Router.ignition(k);
     }
 
@@ -103,10 +117,6 @@ public class Main {
                     System.out.println("???");
             }
         }
-
-
-
-
 
     }
 
