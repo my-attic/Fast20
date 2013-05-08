@@ -1,6 +1,6 @@
 
 - upload files
-- plugin (jar) loaded at runtime
+- plugin (jar) loaded at runtime  -> done
 - redis -> done
 - mongo + jongo
 - hot reloading

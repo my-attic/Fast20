@@ -17,6 +17,7 @@ public class Skeleton {
         Resources.mkdir(applicationDirectory+"/models");
         Resources.mkdir(applicationDirectory+"/views");
         Resources.mkdir(applicationDirectory+"/core");
+        Resources.mkdir(applicationDirectory+"/plugins");
         //Resources.mkdir(applicationDirectory+"/core/data");
 
         Resources.copy("rsrc/skeleton/app/core/route.golo",applicationDirectory+"/core/route.golo");

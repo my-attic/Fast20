@@ -16,7 +16,8 @@ function router = |message| {
         Route("POST", "/sandbox", "/controllers/sandbox.golo", "Test::hi"),
         Route("POST", "/fileupload", "/controllers/upload.golo", "upload"),
         Route("GET","/startw1","/controllers/workers.golo", "start_w1"),
-        Route("GET","/startw2","/controllers/workers.golo", "start_w2")
+        Route("GET","/startw2","/controllers/workers.golo", "start_w2"),
+        Route("GET","/42","/controllers/plugins.golo", "tests")
     )
 
 }
