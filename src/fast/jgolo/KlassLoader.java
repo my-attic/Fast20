@@ -42,7 +42,9 @@ public class KlassLoader {
                             new FileInputStream(f.getAbsoluteFile())
                     );
 
-                    this.modules.put(f.getAbsoluteFile().toString().split(this.pathToParse)[1], module);
+                    this.modules.put(f.getAbsoluteFile().toString().replaceAll("\\\\", "/").split(this.pathToParse.replaceAll("\\\\", "/"))[1], module);
+
+                    //this.modules.put(f.getAbsoluteFile().toString().split(this.pathToParse)[1], module);
                 }
             }
         }

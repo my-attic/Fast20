@@ -84,6 +84,7 @@ public class Router {
 
             /*=== GET ===*/
             if(dyno.get("restVerb").equals("GET")) {
+
                 get(new Route(dyno.get("url").toString()) {
                     @Override
                     public Object handle(Request request, Response response) {
